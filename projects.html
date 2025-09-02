@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects - Samuel</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* Layout: sticky footer */
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: 'JetBrains Mono', monospace;
+      background: #0e0e17;
+      color: #f1f1f1;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    main { flex: 1 0 auto; }
+
+    /* Header */
+    header {
+      background: #1a1a2e;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      font-family: 'Poppins', sans-serif; /* ✅ Poppins */
+    }
+    header a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    header a:hover {
+      color: #a78bfa;
+    }
+
+    /* Page sections */
+    section {
+      padding: 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+      margin: 1rem 0 1.5rem;
+      color: #a78bfa;
+      font-size: 2rem;
+    }
+    .intro-text {
+      text-align: center;
+      padding: 1rem;
+      max-width: 800px;
+      margin: auto;
+      color: #ddd;
+      font-size: 1.2rem;
+      line-height: 1.8;
+    }
+
+    /* Projects grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-top: 2rem;
+      justify-items: center;
+    }
+    @media (max-width: 700px) {
+      .projects-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Project cards */
+    .project-box {
+      background: #1f1f2e;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
+      width: 100%;
+    }
+    .project-box:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 20px rgba(167, 139, 250, 0.4); /* glow */
+    }
+    .project-box a {
+      display: block;
+      outline: none;
+    }
+    .project-box a:focus-visible {
+      outline: 3px solid #a78bfa;
+      outline-offset: 4px;
+    }
+    .project-box img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    /* Footer */
+    footer {
+      background: #1a1a2e;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #aaa;
+      font-family: 'Poppins', sans-serif; /* ✅ Poppins */
+    }
+    footer a {
+      color: #a78bfa;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <a href="index.html">Home</a>
+    <a href="projects.html" aria-current="page">Projects</a>
+    <a href="index.html#experiences">My Skills</a>
+    <a href="index.html#contact">Contact</a>
+  </header>
+
+  <main>
+    <section>
+      <h2>My Projects</h2>
+      <p class="intro-text">
+        Here’s a selection of projects I’ve worked on. Click on any preview to explore the live site.
+      </p>
+
+      <div class="projects-grid">
+        <div class="project-box">
+          <a href="https://tiretalent.com/" target="_blank" rel="noopener">
+            <img src="images/project1.png" alt="Tire Talent website preview" loading="lazy" />
+          </a>
+        </div>
+        <div class="project-box">
+          <a href="https://solarsesame.com/" target="_blank" rel="noopener">
+            <img src="images/project2.png" alt="Solar Sesame website preview" loading="lazy" />
+          </a>
+        </div>
+        <div class="project-box">
+          <a href="https://cedarcrestchurch.com/" target="_blank" rel="noopener">
+            <img src="images/project3.png" alt="Cedarcrest Church website preview" loading="lazy" />
+          </a>
+        </div>
+        <div class="project-box">
+          <a href="https://www.americasmattress.com/" target="_blank" rel="noopener">
+            <img src="images/project4.png" alt="America's Mattress website preview" loading="lazy" />
+          </a>
+        </div>
+        <div class="project-box">
+          <a href="https://kimgarst.com/" target="_blank" rel="noopener">
+            <img src="images/project5.png" alt="Kim Garst website preview" loading="lazy" />
+          </a>
+        </div>
+        <div class="project-box">
+          <a href="https://scrapeunlimitedleads.com/video" target="_blank" rel="noopener">
+            <img src="images/project6.png" alt="Scrape Unlimited Leads page preview" loading="lazy" />
+          </a>
+        </div>
+        <div class="project-box">
+          <a href="https://pra.insure/" target="_blank" rel="noopener">
+            <img src="images/project7.png" alt="PRA Insure website preview" loading="lazy" />
+          </a>
+        </div>
+        <div class="project-box">
+          <a href="https://www.resmarksystems.com/" target="_blank" rel="noopener">
+            <img src="images/project8.png" alt="Resmark Systems website preview" loading="lazy" />
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Samuel Henry | Built with ❤️
+  </footer>
+
+</body>
+</html>
