@@ -5,541 +5,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Samuel - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        html {
-            scroll-behavior: smooth;
+        /* Custom Tailwind Colors & Fonts */
+        :root {
+            --primary-color: #a78bfa;
+            --background-dark: #1d1c22;
+            --background-medium: #1a1a2e;
+            --background-light: #0e0e17;
+            --text-light: #fff;
+            --text-subtle: #ddd;
         }
+
+        html { scroll-behavior: smooth; }
         body {
-            margin: 0;
+            background-color: var(--background-dark);
+            color: var(--text-light);
             font-family: 'Poppins', sans-serif;
-            background: #1d1c22; /* Unified background */
-            color: #fff;
         }
-
-        /* Desktop Styles */
-        /* Header */
-        header {
-            background: #1a1a2e;
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+        .bg-custom-medium { background-color: var(--background-medium); }
+        .bg-custom-light { background-color: var(--background-light); }
+        .text-primary { color: var(--primary-color); }
+        .hero-bg {
+            background-image: url('https://placehold.co/1920x1080/0e0e17/1d1c22?text=Portfolio+Background');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
         }
-        header a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-        header a:hover {
-            color: #a78bfa;
-        }
-        .menu-toggle, .mobile-menu {
-            display: none;
-        }
-
-        /* Hero Section */
-        .hero {
-            display: flex;
-            align-items: center;
-            min-height: 75vh;
-            background: url('https://placehold.co/1920x1080/0e0e17/fff?text=Background+Image') no-repeat center center/cover;
-            text-align: left;
-            padding: 4rem 8%;
-            position: relative;
-        }
-        .hero::after {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(14,14,23,0.5);
-        }
-        .hero-content {
-            position: relative;
-            max-width: 700px;
-            z-index: 2;
-            border-left: 4px solid #a78bfa;
-            padding-left: 1.5rem;
-        }
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin: 0;
-        }
-        .wave {
-            display: inline-block;
-            animation: wave 2s infinite;
-            transform-origin: 70% 70%;
-        }
-        @keyframes wave {
-            0% { transform: rotate(0deg); }
-            10% { transform: rotate(14deg); }
-            20% { transform: rotate(-8deg); }
-            30% { transform: rotate(14deg); }
-            40% { transform: rotate(-4deg); }
-            50% { transform: rotate(10deg); }
-            60% { transform: rotate(0deg); }
-            100% { transform: rotate(0deg); }
-        }
-        .hero h2 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin: 1rem 0;
-            min-height: 2.2rem;
-        }
-        .highlight {
-            color: #a78bfa;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            color: #ddd;
-            margin-bottom: 1.5rem;
-        }
-
-        /* Button */
-        .btn {
-            display: inline-block;
-            padding: 0.6rem 1.5rem;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: #fff;
-            border-radius: 6px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-            margin-top: 0.6rem;
-        }
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
-        }
-        .btn-github {
-            background: #333;
-        }
-        .btn-github:hover {
-            background: #555;
-        }
-        .btn-fiverr {
-            background: #1dbf73;
-        }
-        .btn-fiverr:hover {
-            background: #17a564;
-        }
-
-        /* Stats Section */
-        .stats {
-            padding: 1.5rem 8%;
-            background: #0e0e17;
-        }
-        .stats-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 6rem;
-        }
-        .stat {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-family: 'JetBrains Mono', monospace;
-        }
-        .stat .number {
-            font-size: 60px;
-            font-weight: 600;
-            color: #a78bfa;
-        }
-        .stat .text {
-            font-size: 16px;
-            font-weight: 400;
-            color: #fff;
-            line-height: 1.3;
-            text-align: left;
-        }
-        .divider {
-            width: 1px;
-            height: 50px;
-            background: rgba(255,255,255,0.2);
-        }
-
-        /* About Section */
-        .about {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 3rem;
-            padding: 4rem 8%;
-            background: #0e0e17;
-        }
-        .about img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #a78bfa;
-        }
-        .about-left {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-        .about-left h3 {
-            margin-top: 1rem;
-            font-size: 1.2rem;
-            font-weight: 600;
-            white-space: nowrap;
-        }
-        .about-left .highlight {
-            display: inline-block;
-            width: 120px; /* Fixed width */
-            text-align: left;
-        }
-        .about-buttons {
-            display: flex;
-            gap: 0.6rem;
-            margin-top: 0.5rem;
-        }
-        .about-buttons .btn {
-            padding: 0.5rem 1.2rem;
-            font-size: 0.85rem;
-        }
-        .about-right {
-            flex: 2;
-        }
-        .about-right p {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #ddd;
-            margin-bottom: 1rem;
-        }
-            
-        /* Other Experiences Section Styles */
-        .experiences {
-            background: #0e0e17;
-            padding: 4rem 4%;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .experiences-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #a78bfa;
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .experience-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            column-gap: 3rem;
-            row-gap: 2.5rem;
-            width: 100%;
-            max-width: 100%;
-            padding: 0;
-        }
-
-        .experience-card {
-            background: rgba(29, 28, 34, 0.95);
-            border: 1px solid rgba(167, 139, 250, 0.2);
-            border-radius: 16px;
-            padding: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            transition: box-shadow 0.3s ease;
-        }
-
-        .experience-card:hover {
-            box-shadow: 0 0 25px rgba(167, 139, 250, 0.4);
-        }
-
-        .experience-card img {
-            width: 70px;
-            height: 70px;
-            flex-shrink: 0;
-            border-radius: 12px;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Soft glow behind logos */
-        .experience-card img::after {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100px;
-            height: 100px;
-            background: rgba(167, 139, 250, 0.3);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            z-index: -1;
-            filter: blur(20px);
-        }
-
-        .experience-card h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #fff;
-            margin-bottom: 0.5rem;
-        }
-
-        .experience-card p {
-            font-size: 0.95rem;
-            color: #bbb;
-            line-height: 1.4;
-        }
-            
-        /* Contact Section Styles */
-        .contact {
-            background: #0e0e17;
-            padding: 5rem 10%;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .contact-title {
-            font-size: 48px;
-            font-weight: 700;
-            color: #a78bfa;
-            margin-bottom: 1rem;
-        }
-
-        .contact-subtitle {
-            font-size: 16px;
-            font-weight: 400;
-            color: #bbb;
-            margin-bottom: 3rem;
-        }
-
-        .contact form {
-            max-width: 600px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .contact input,
-        .contact textarea {
-            width: 100%;
-            padding: 1rem;
-            border: 1px solid rgba(167, 139, 250, 0.3);
-            border-radius: 12px;
-            background: rgba(29, 28, 34, 0.95);
-            color: #fff;
-            font-size: 1rem;
-            font-family: 'JetBrains Mono', monospace;
-            transition: border 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .contact input:focus,
-        .contact textarea:focus {
-            border: 1px solid #a78bfa;
-            box-shadow: 0 0 10px rgba(167, 139, 250, 0.4);
-            outline: none;
-        }
-
-        .contact button {
-            padding: 1rem;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 12px;
-            border: none;
-            cursor: pointer;
-            background: #a78bfa;
-            color: #0e0e17;
-            font-family: 'JetBrains Mono', monospace;
-            transition: background 0.3s ease, transform 0.2s ease;
-        }
-
-        .contact button:hover {
-            background: #c4b5fd;
-            transform: scale(1.03);
-        }
-
-        #formMessage {
-            margin-top: 1.5rem;
-            color: #a78bfa;
-            font-size: 0.95rem;
-        }
-
-        /* Footer */
-        footer {
-            background: #1a1a2e;
-            text-align: center;
-            padding: 1rem;
-            font-size: 0.9rem;
-            color: #aaa;
-        }
-        footer a {
-            color: #a78bfa;
-            text-decoration: none;
-        }
-
-        /* Mobile Responsiveness */
         @media (max-width: 768px) {
-            /* Header */
-            header {
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: center;
-                gap: 0;
+            .hero-bg {
+                background-image: url('https://placehold.co/768x1024/0e0e17/1d1c22?text=Portfolio+Background');
             }
-            header a {
-                display: none; /* Hide desktop menu items by default */
-            }
-            .menu-toggle {
-                display: block;
-                position: absolute;
-                top: 1rem;
-                right: 2rem;
-                background: none;
-                border: none;
-                color: #fff;
-                font-size: 1.5rem;
-                cursor: pointer;
-                z-index: 1001;
-            }
-            .mobile-menu {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                background: #1a1a2e;
-                padding-bottom: 1rem;
-            }
-            .mobile-menu.active {
-                display: flex;
-            }
-            .mobile-menu a {
-                display: block;
-                padding: 0.75rem 0;
-                text-align: center;
-            }
-
-            /* Hero Section */
-            .hero {
-                padding: 3rem 5%;
-                min-height: auto; /* Allow hero section to shrink */
-            }
-            .hero-content {
-                border-left: none;
-                padding-left: 0;
-            }
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            .hero h2 {
-                font-size: 1.4rem;
-            }
-            .hero p {
-                font-size: 1rem;
-            }
-
-            /* Other sections */
-            .stats-container {
-                flex-direction: column;
-                gap: 2rem;
-            }
-            .divider {
-                display: none;
-            }
-            .about {
-                flex-direction: column;
-                text-align: center;
-            }
-            .about-left {
-                margin-bottom: 2rem;
-            }
-            .about-left h3 {
-                font-size: 1rem;
-            }
-            .about-right p {
-                font-size: 0.95rem;
-            }
-            
-            /* Other Experiences responsiveness */
-            .experience-grid {
-                grid-template-columns: 1fr; /* one column on mobile */
-            }
-            .experience-card {
-                flex-direction: column; /* stack logo above text */
-                text-align: center;
-            }
-            .experience-card img {
-                margin-bottom: 1rem;
-            }
-
-            /* Contact responsiveness */
-            .contact {
-                padding: 3rem 1.5rem;
-            }
-            .contact-title {
-                font-size: 36px;
-            }
-            .contact-subtitle {
-                font-size: 14px;
-            }
+        }
+        /* Style for the hamburger icon */
+        .menu-icon {
+            cursor: pointer;
+            z-index: 1050; /* Ensure it's above other content */
+        }
+        .menu-icon svg {
+            transition: transform 0.3s ease;
+        }
+        .menu-icon[aria-expanded="true"] svg {
+            transform: rotate(90deg);
         }
     </style>
 </head>
-<body>
+<body class="bg-slate-900 text-white">
+
     <!-- Header -->
-    <header>
-        <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
-        <nav class="mobile-menu">
-            <a href="#">Home</a>
-            <a href="projects.html">Projects</a>
-            <a href="#experiences">My Skills</a>
-            <a href="#contact">Contact</a>
+    <header id="header" class="bg-custom-medium p-4 shadow-xl sticky top-0 z-50 flex justify-between items-center lg:justify-center lg:gap-8">
+        <a href="#" class="text-white text-lg font-bold lg:hidden">Samuel</a>
+        
+        <!-- Mobile Menu Button -->
+        <button id="menu-button" class="lg:hidden p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-purple-400 menu-icon" aria-expanded="false" aria-controls="mobile-menu">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+
+        <!-- Navigation Menus -->
+        <nav id="main-menu" class="hidden lg:flex lg:space-x-8">
+            <a href="#" class="text-white font-semibold hover:text-purple-400 transition-colors">Home</a>
+            <a href="#projects" class="text-white font-semibold hover:text-purple-400 transition-colors">Projects</a>
+            <a href="#experiences" class="text-white font-semibold hover:text-purple-400 transition-colors">My Skills</a>
+            <a href="#contact" class="text-white font-semibold hover:text-purple-400 transition-colors">Contact</a>
         </nav>
-        <a href="#" class="desktop-nav">Home</a>
-        <a href="projects.html" class="desktop-nav">Projects</a>
-        <a href="#experiences" class="desktop-nav">My Skills</a>
-        <a href="#contact" class="desktop-nav">Contact</a>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <nav id="mobile-menu" class="absolute inset-x-0 top-full p-4 bg-custom-medium shadow-md transition-transform duration-300 transform -translate-y-full lg:hidden">
+            <a href="#" class="block p-2 text-white font-semibold hover:text-purple-400 rounded-md">Home</a>
+            <a href="#projects" class="block p-2 text-white font-semibold hover:text-purple-400 rounded-md">Projects</a>
+            <a href="#experiences" class="block p-2 text-white font-semibold hover:text-purple-400 rounded-md">My Skills</a>
+            <a href="#contact" class="block p-2 text-white font-semibold hover:text-purple-400 rounded-md">Contact</a>
+        </nav>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Hi, I'm <span class="highlight">Samuel</span> <span class="wave">👋</span></h1>
-            <h2>I'm <span id="typed" class="highlight"></span></h2>
-            <p>And I've been waiting for you</p>
-            <a href="projects.html" class="btn" style="background: linear-gradient(135deg, #a78bfa, #6d28d9);">View My Work</a>
+    <section class="hero-bg flex items-center min-h-[75vh] p-8 lg:p-16 relative before:content-[''] before:absolute before:inset-0 before:bg-slate-900 before:opacity-50">
+        <div class="hero-content relative z-10 border-l-4 border-purple-400 pl-6 lg:max-w-xl">
+            <h1 class="text-4xl lg:text-5xl font-bold mb-2">Hi, I'm <span class="text-purple-400">Samuel</span> <span class="inline-block animate-[wave_2s_infinite] origin-[70%_70%]">👋</span></h1>
+            <h2 class="text-xl lg:text-2xl font-semibold my-4 min-h-[2.2rem]">I'm <span id="typed" class="text-purple-400"></span></h2>
+            <p class="text-base text-gray-300 mb-6">And I've been waiting for you</p>
+            <a href="#projects" class="btn inline-block px-4 py-2 font-semibold text-white rounded-md transition-all duration-300 shadow-lg bg-gradient-to-r from-purple-400 to-purple-600 hover:scale-105">View My Work</a>
         </div>
     </section>
 
     <!-- Stats Section -->
-    <section class="stats">
-        <div class="stats-container">
-            <div class="stat">
-                <span class="number" data-target="20">0</span>
-                <div class="text">
+    <section class="bg-custom-light p-8 lg:p-16">
+        <div class="flex flex-col lg:flex-row justify-center items-center gap-8 lg:gap-24 text-center">
+            <div class="stat flex items-center gap-3 font-mono">
+                <span class="number text-5xl lg:text-6xl font-semibold text-purple-400" data-target="20">0</span>
+                <div class="text-sm lg:text-base font-normal text-white leading-tight text-left">
                     <span>Years of</span><br>
                     <span>Age</span>
                 </div>
             </div>
-
-            <div class="divider"></div>
-
-            <div class="stat">
-                <span class="number" data-target="2">0</span>
-                <div class="text">
+            <div class="hidden lg:block h-12 w-px bg-white/20"></div>
+            <div class="stat flex items-center gap-3 font-mono">
+                <span class="number text-5xl lg:text-6xl font-semibold text-purple-400" data-target="2">0</span>
+                <div class="text-sm lg:text-base font-normal text-white leading-tight text-left">
                     <span>Years of</span><br>
                     <span>Experience</span>
                 </div>
             </div>
-
-            <div class="divider"></div>
-
-            <div class="stat">
-                <span class="number" data-target="18">0</span>
-                <div class="text">
+            <div class="hidden lg:block h-12 w-px bg-white/20"></div>
+            <div class="stat flex items-center gap-3 font-mono">
+                <span class="number text-5xl lg:text-6xl font-semibold text-purple-400" data-target="18">0</span>
+                <div class="text-sm lg:text-base font-normal text-white leading-tight text-left">
                     <span>Projects</span><br>
                     <span>Worked On</span>
                 </div>
@@ -548,212 +120,216 @@
     </section>
 
     <!-- About Section -->
-    <section class="about">
-        <div class="about-left">
-            <img src="https://placehold.co/200x200" alt="Profile Picture">
-            <h3>GoHighLevel | <span id="typed-about" class="highlight"></span></h3>
-            <div class="about-buttons">
-                <a href="https://github.com/HunchoT10" target="_blank" class="btn btn-github">GitHub</a>
-                <a href="https://www.fiverr.com/s/5rByLVb" target="_blank" class="btn btn-fiverr">Fiverr</a>
+    <section class="bg-custom-light p-8 lg:p-16 flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12">
+        <div class="about-left flex flex-col items-center text-center mb-8 lg:mb-0">
+            <img src="https://placehold.co/200x200/553c9a/c4b5fd?text=Samuel" alt="Profile Picture" class="w-48 h-48 rounded-full object-cover border-4 border-purple-400 mb-4">
+            <h3 class="text-lg font-semibold whitespace-nowrap">GoHighLevel | <span id="typed-about" class="text-purple-400"></span></h3>
+            <div class="flex gap-4 mt-2">
+                <a href="https://github.com/HunchoT10" target="_blank" class="btn inline-block px-3 py-2 text-sm font-semibold rounded-md shadow-lg bg-gray-700 hover:bg-gray-800 transition-colors">GitHub</a>
+                <a href="https://www.fiverr.com/s/5rByLVb" target="_blank" class="btn inline-block px-3 py-2 text-sm font-semibold rounded-md shadow-lg bg-emerald-500 hover:bg-emerald-600 transition-colors">Fiverr</a>
             </div>
         </div>
-        <div class="about-right">
-            <p>💻 I’m a GoHighLevel websites and automation specialist who loves helping business owners make things simpler and more effective online.</p>
-            <p>✨ From building clean, high-converting websites to setting up automations that save you hours every week, my goal is to take the tech stress off your shoulders so you can focus on growing your business.</p>
-            <p>⚡ I believe great systems should feel effortless, and I’m here to make that happen for you.</p>
-            <p>🛠️ I’m also familiar with platforms like Wix and other CRM and email marketing platforms, which gives me flexibility to work with whatever tools you already use.</p>
-            <p>🌟 You can explore my Fiverr profile, where I’ve built a track record of happy clients and 5-star reviews.</p>
+        <div class="about-right lg:flex-1 lg:max-w-2xl">
+            <p class="text-base leading-relaxed text-gray-300 mb-4">💻 I’m a GoHighLevel websites and automation specialist who loves helping business owners make things simpler and more effective online.</p>
+            <p class="text-base leading-relaxed text-gray-300 mb-4">✨ From building clean, high-converting websites to setting up automations that save you hours every week, my goal is to take the tech stress off your shoulders so you can focus on growing your business.</p>
+            <p class="text-base leading-relaxed text-gray-300 mb-4">⚡ I believe great systems should feel effortless, and I’m here to make that happen for you.</p>
+            <p class="text-base leading-relaxed text-gray-300 mb-4">🛠️ I’m also familiar with platforms like Wix and other CRM and email marketing platforms, which gives me flexibility to work with whatever tools you already use.</p>
+            <p class="text-base leading-relaxed text-gray-300 mb-4">🌟 You can explore my Fiverr profile, where I’ve built a track record of happy clients and 5-star reviews.</p>
         </div>
     </section>
 
     <!-- Other Experiences Section -->
-    <section class="experiences" id="experiences">
-        <h2 class="experiences-title">Other Skills🛠️</h2>
-
-        <div class="experience-grid">
+    <section class="experiences bg-custom-light p-8 lg:p-16 font-mono" id="experiences">
+        <h2 class="text-3xl lg:text-4xl font-bold text-purple-400 text-center mb-12">Other Skills🛠️</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
 
             <!-- Wix -->
-            <div class="experience-card">
-                <img src="https://placehold.co/70x70/0e0e17/fff?text=Wix" alt="Wix Logo">
+            <div class="experience-card bg-[#1d1c22] border border-purple-400/20 rounded-xl p-6 flex flex-col md:flex-row items-center md:items-start gap-6 transition-shadow hover:shadow-2xl hover:shadow-purple-400/40">
+                <img src="https://placehold.co/70x70/553c9a/c4b5fd?text=Wix" alt="Wix Logo" class="w-16 h-16 rounded-lg flex-shrink-0 mb-4 md:mb-0">
                 <div>
-                    <h3>Wix</h3>
-                    <p>A user-friendly website builder that makes it easy to design professional sites with drag-and-drop tools, perfect for small businesses and personal projects.</p>
+                    <h3 class="text-xl font-semibold text-white mb-2">Wix</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">A user-friendly website builder that makes it easy to design professional sites with drag-and-drop tools, perfect for small businesses and personal projects.</p>
                 </div>
             </div>
 
             <!-- WordPress -->
-            <div class="experience-card">
-                <img src="https://placehold.co/70x70/0e0e17/fff?text=WP" alt="WordPress Logo">
+            <div class="experience-card bg-[#1d1c22] border border-purple-400/20 rounded-xl p-6 flex flex-col md:flex-row items-center md:items-start gap-6 transition-shadow hover:shadow-2xl hover:shadow-purple-400/40">
+                <img src="https://placehold.co/70x70/553c9a/c4b5fd?text=WP" alt="WordPress Logo" class="w-16 h-16 rounded-lg flex-shrink-0 mb-4 md:mb-0">
                 <div>
-                    <h3>WordPress</h3>
-                    <p>The world’s most popular content management system, giving flexibility to build blogs, portfolios, and advanced business websites with plugins and themes.</p>
+                    <h3 class="text-xl font-semibold text-white mb-2">WordPress</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">The world’s most popular content management system, giving flexibility to build blogs, portfolios, and advanced business websites with plugins and themes.</p>
                 </div>
             </div>
 
             <!-- Mailchimp -->
-            <div class="experience-card">
-                <img src="https://placehold.co/70x70/0e0e17/fff?text=MC" alt="Mailchimp Logo">
+            <div class="experience-card bg-[#1d1c22] border border-purple-400/20 rounded-xl p-6 flex flex-col md:flex-row items-center md:items-start gap-6 transition-shadow hover:shadow-2xl hover:shadow-purple-400/40">
+                <img src="https://placehold.co/70x70/553c9a/c4b5fd?text=Mailchimp" alt="Mailchimp Logo" class="w-16 h-16 rounded-lg flex-shrink-0 mb-4 md:mb-0">
                 <div>
-                    <h3>Mailchimp</h3>
-                    <p>An email marketing platform that helps businesses connect with their audience through newsletters, campaigns, and automation tools.</p>
+                    <h3 class="text-xl font-semibold text-white mb-2">Mailchimp</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">An email marketing platform that helps businesses connect with their audience through newsletters, campaigns, and automation tools.</p>
                 </div>
             </div>
 
             <!-- Klaviyo -->
-            <div class="experience-card">
-                <img src="https://placehold.co/70x70/0e0e17/fff?text=K" alt="Klaviyo Logo">
+            <div class="experience-card bg-[#1d1c22] border border-purple-400/20 rounded-xl p-6 flex flex-col md:flex-row items-center md:items-start gap-6 transition-shadow hover:shadow-2xl hover:shadow-purple-400/40">
+                <img src="https://placehold.co/70x70/553c9a/c4b5fd?text=Klaviyo" alt="Klaviyo Logo" class="w-16 h-16 rounded-lg flex-shrink-0 mb-4 md:mb-0">
                 <div>
-                    <h3>Klaviyo</h3>
-                    <p>A powerful marketing platform designed for e-commerce, helping businesses send personalized emails and SMS messages to boost sales.</p>
+                    <h3 class="text-xl font-semibold text-white mb-2">Klaviyo</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">A powerful marketing platform designed for e-commerce, helping businesses send personalized emails and SMS messages to boost sales.</p>
                 </div>
             </div>
 
             <!-- Zapier -->
-            <div class="experience-card">
-                <img src="https://placehold.co/70x70/0e0e17/fff?text=Z" alt="Zapier Logo">
+            <div class="experience-card bg-[#1d1c22] border border-purple-400/20 rounded-xl p-6 flex flex-col md:flex-row items-center md:items-start gap-6 transition-shadow hover:shadow-2xl hover:shadow-purple-400/40">
+                <img src="https://placehold.co/70x70/553c9a/c4b5fd?text=Zapier" alt="Zapier Logo" class="w-16 h-16 rounded-lg flex-shrink-0 mb-4 md:mb-0">
                 <div>
-                    <h3>Zapier</h3>
-                    <p>An automation tool that connects different apps and services, letting workflows run automatically without needing code.</p>
+                    <h3 class="text-xl font-semibold text-white mb-2">Zapier</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">An automation tool that connects different apps and services, letting workflows run automatically without needing code.</p>
                 </div>
             </div>
 
             <!-- JavaScript -->
-            <div class="experience-card">
-                <img src="https://placehold.co/70x70/0e0e17/fff?text=JS" alt="JavaScript Logo">
+            <div class="experience-card bg-[#1d1c22] border border-purple-400/20 rounded-xl p-6 flex flex-col md:flex-row items-center md:items-start gap-6 transition-shadow hover:shadow-2xl hover:shadow-purple-400/40">
+                <img src="https://placehold.co/70x70/553c9a/c4b5fd?text=JS" alt="JavaScript Logo" class="w-16 h-16 rounded-lg flex-shrink-0 mb-4 md:mb-0">
                 <div>
-                    <h3>JavaScript</h3>
-                    <p>The programming language that powers interactive features on websites, from animations to dynamic content and app-like functionality.</p>
+                    <h3 class="text-xl font-semibold text-white mb-2">JavaScript</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">The programming language that powers interactive features on websites, from animations to dynamic content and app-like functionality.</p>
                 </div>
             </div>
-
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <h2 class="contact-title">Let’s Talk</h2>
-        <p class="contact-subtitle">What led you here? What are you looking for? I would love to hear from you!</p>
+    <section id="contact" class="contact bg-custom-light p-8 lg:p-20 text-center font-mono">
+        <h2 class="text-4xl lg:text-5xl font-bold text-purple-400 mb-4">Let’s Talk</h2>
+        <p class="text-sm lg:text-base text-gray-400 mb-12">What led you here? What are you looking for? I would love to hear from you!</p>
 
-        <form id="contactForm" action="https://formspree.io/f/xeoloajy" method="POST">
-            <input type="text" name="name" placeholder="Your Name" aria-label="Your name" required>
-            <input type="email" name="email" placeholder="Your Email" aria-label="Your email" required>
-            <textarea name="message" rows="5" placeholder="Your Message" aria-label="Your message" required></textarea>
-            <button type="submit">Send Message</button>
+        <form id="contactForm" action="https://formspree.io/f/xeoloajy" method="POST" class="max-w-2xl mx-auto flex flex-col gap-6">
+            <input type="text" name="name" placeholder="Your Name" aria-label="Your name" required class="w-full p-4 border border-purple-400/30 rounded-lg bg-[#1d1c22] text-white focus:outline-none focus:border-purple-400 focus:shadow-lg focus:shadow-purple-400/40">
+            <input type="email" name="email" placeholder="Your Email" aria-label="Your email" required class="w-full p-4 border border-purple-400/30 rounded-lg bg-[#1d1c22] text-white focus:outline-none focus:border-purple-400 focus:shadow-lg focus:shadow-purple-400/40">
+            <textarea name="message" rows="5" placeholder="Your Message" aria-label="Your message" required class="w-full p-4 border border-purple-400/30 rounded-lg bg-[#1d1c22] text-white focus:outline-none focus:border-purple-400 focus:shadow-lg focus:shadow-purple-400/40"></textarea>
+            <button type="submit" class="btn p-4 font-semibold rounded-lg border-none cursor-pointer bg-purple-400 text-slate-900 transition-transform hover:scale-105 hover:bg-purple-300">Send Message</button>
         </form>
-        <p id="formMessage"></p>
+        <p id="formMessage" class="mt-6 text-sm text-purple-400"></p>
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="bg-custom-medium text-center p-4 text-sm text-gray-400">
         © 2025 Samuel Henry | Built with ❤️
     </footer>
 
     <!-- Scripts -->
     <script>
-        // Hero typing effect
-        const roles = ["a Website Designer", "an Automations Specialist"];
-        let index = 0;
-        let charIndex = 0;
-        let deleting = false;
-        const speed = 120;
-        const typedElement = document.getElementById("typed");
+        document.addEventListener('DOMContentLoaded', () => {
 
-        function typeEffect() {
-            const currentRole = roles[index];
+            // Mobile Menu Logic
+            const menuButton = document.getElementById('menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
 
-            if (!deleting) {
-                typedElement.textContent = currentRole.substring(0, charIndex + 1);
-                charIndex++;
-
-                if (charIndex === currentRole.length) {
-                    deleting = true;
-                    setTimeout(typeEffect, 2000);
-                    return;
-                }
-            } else {
-                typedElement.textContent = currentRole.substring(0, charIndex - 1);
-                charIndex--;
-
-                if (charIndex === 0) {
-                    deleting = false;
-                    index = (index + 1) % roles.length;
-                }
-            }
-
-            setTimeout(typeEffect, deleting ? speed / 2 : speed);
-        }
-        typeEffect();
-
-        // Stats Count Animation
-        const counters = document.querySelectorAll('.number');
-        const options = { threshold: 0.5 };
-
-        function animateCount(counter) {
-            const target = +counter.getAttribute('data-target');
-            let current = 0;
-            const duration = 2000;
-            const start = performance.now();
-
-            function update(now) {
-                const elapsed = now - start;
-                const progress = Math.min(elapsed / duration, 1);
-                const easedProgress = 1 - Math.pow(1 - progress, 3);
-                current = Math.floor(target * easedProgress);
-                counter.textContent = current;
-
-                if (progress < 1) {
-                    requestAnimationFrame(update);
+            menuButton.addEventListener('click', () => {
+                const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+                menuButton.setAttribute('aria-expanded', !isExpanded);
+                if (isExpanded) {
+                    mobileMenu.style.transform = 'translateY(-100%)';
                 } else {
-                    counter.textContent = target;
-                }
-            }
-            requestAnimationFrame(update);
-        }
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const counter = entry.target;
-                    animateCount(counter);
-                    observer.unobserve(counter);
+                    mobileMenu.style.transform = 'translateY(0)';
                 }
             });
-        }, options);
 
-        counters.forEach(counter => observer.observe(counter));
+            // Hero typing effect
+            const typedElement = document.getElementById("typed");
+            const typedAboutElement = document.getElementById("typed-about");
 
-        // About typing effect (fixed width)
-        const aboutRoles = ["Wix Studio", "WordPress"];
-        let aboutIndex = 0;
-        let aboutCharIndex = 0;
-        let aboutDeleting = false;
-        const aboutElement = document.getElementById("typed-about");
+            const roles = ["a Website Designer", "an Automation Specialist"];
+            const aboutRoles = ["Wix Studio", "WordPress"];
+            let typedIndex = 0;
+            let typedCharIndex = 0;
+            let typedDeleting = false;
+            let aboutIndex = 0;
+            let aboutCharIndex = 0;
+            let aboutDeleting = false;
+            const speed = 120;
 
-        function typeAboutEffect() {
-            const currentRole = aboutRoles[aboutIndex];
+            function typeEffect(element, rolesArray, isAbout = false) {
+                const currentRole = rolesArray[isAbout ? aboutIndex : typedIndex];
+                let isDeleting = isAbout ? aboutDeleting : typedDeleting;
+                let charIndex = isAbout ? aboutCharIndex : typedCharIndex;
 
-            if (!aboutDeleting) {
-                aboutElement.textContent = currentRole.substring(0, aboutCharIndex + 1);
-                aboutCharIndex++;
+                if (!isDeleting) {
+                    element.textContent = currentRole.substring(0, charIndex + 1);
+                    charIndex++;
 
-                if (aboutCharIndex === currentRole.length) {
-                    aboutDeleting = true;
-                    setTimeout(typeAboutEffect, 2000);
-                    return;
+                    if (charIndex === currentRole.length) {
+                        isDeleting = true;
+                        setTimeout(() => typeEffect(element, rolesArray, isAbout), 2000);
+                        return;
+                    }
+                } else {
+                    element.textContent = currentRole.substring(0, charIndex - 1);
+                    charIndex--;
+
+                    if (charIndex === 0) {
+                        isDeleting = false;
+                        if (isAbout) {
+                            aboutIndex = (aboutIndex + 1) % rolesArray.length;
+                        } else {
+                            typedIndex = (typedIndex + 1) % rolesArray.length;
+                        }
+                    }
                 }
-            } else {
-                aboutElement.textContent = currentRole.substring(0, aboutCharIndex - 1);
-                aboutCharIndex--;
-
-                if (aboutCharIndex === 0) {
-                    aboutDeleting = false;
-                    aboutIndex = (aboutIndex + 1) % aboutRoles.length;
+                
+                if (isAbout) {
+                    aboutDeleting = isDeleting;
+                    aboutCharIndex = charIndex;
+                } else {
+                    typedDeleting = isDeleting;
+                    typedCharIndex = charIndex;
                 }
+
+                setTimeout(() => typeEffect(element, rolesArray, isAbout), isDeleting ? speed / 2 : speed);
+            }
+            
+            typeEffect(typedElement, roles);
+            typeEffect(typedAboutElement, aboutRoles, true);
+
+            // Stats Count Animation
+            const counters = document.querySelectorAll('.number');
+            const options = { threshold: 0.5 };
+
+            function animateCount(counter) {
+                const target = +counter.getAttribute('data-target');
+                let current = 0;
+                const duration = 2000;
+                const start = performance.now();
+
+                function update(now) {
+                    const elapsed = now - start;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const easedProgress = 1 - Math.pow(1 - progress, 3);
+                    current = Math.floor(target * easedProgress);
+                    counter.textContent = current;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    } else {
+                        counter.textContent = target;
+                    }
+                }
+                requestAnimationFrame(update);
             }
 
-            setTimeout(typeAboutEffect, aboutDeleting ? speed / 2 : speed);
-        }
-        typeAboutEffect();
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        animateCount(counter);
+                        observer.unobserve(counter);
+                    }
+                });
+            }, options);
+
+            counters.forEach(counter => observer.observe(counter));
+        });
     </script>
 </body>
 </html>
