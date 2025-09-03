@@ -45,6 +45,61 @@
       color: #a78bfa;
     }
 
+    /* Mobile Menu */
+    .mobile-menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 5px;
+    }
+    .mobile-menu-toggle span {
+      width: 25px;
+      height: 3px;
+      background: #fff;
+      margin: 3px 0;
+      transition: 0.3s;
+      border-radius: 2px;
+    }
+    .mobile-menu-toggle.active span:nth-child(1) {
+      transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .mobile-menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .mobile-menu-toggle.active span:nth-child(3) {
+      transform: rotate(45deg) translate(-5px, -6px);
+    }
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(26, 26, 46, 0.98);
+      backdrop-filter: blur(10px);
+      z-index: 999;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+    }
+    .mobile-nav.active {
+      transform: translateX(0);
+    }
+    .mobile-nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.5rem;
+      transition: color 0.3s;
+    }
+    .mobile-nav a:hover {
+      color: #a78bfa;
+    }
+
     /* Page sections */
     section {
       padding: 2rem;
@@ -119,23 +174,75 @@
       color: #a78bfa;
       text-decoration: none;
     }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      /* Header Mobile */
+      header {
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.5rem;
+      }
+      
+      header a {
+        display: none;
+      }
+      
+      .mobile-menu-toggle {
+        display: flex;
+      }
+      
+      .mobile-nav {
+        display: flex;
+      }
+
+      /* Adjust section padding for mobile */
+      section {
+        padding: 1.5rem 1rem;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+      }
+
+      .intro-text {
+        font-size: 1rem;
+        padding: 0.5rem;
+      }
+    }
   </style>
 </head>
 <body>
 
   <!-- Header -->
   <header>
+    <div style="display: flex; align-items: center;">
+      <span style="font-weight: 700; color: #a78bfa; font-size: 1.2rem;">Samuel</span>
+    </div>
+    <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
     <a href="index.html">Home</a>
     <a href="projects.html" aria-current="page">Projects</a>
     <a href="index.html#experiences">My Skills</a>
     <a href="index.html#contact">Contact</a>
   </header>
 
+  <!-- Mobile Navigation -->
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="index.html" onclick="closeMobileMenu()">Home</a>
+    <a href="projects.html" onclick="closeMobileMenu()">Projects</a>
+    <a href="index.html#experiences" onclick="closeMobileMenu()">My Skills</a>
+    <a href="index.html#contact" onclick="closeMobileMenu()">Contact</a>
+  </nav>
+
   <main>
     <section>
       <h2>My Projects</h2>
       <p class="intro-text">
-        Here’s a selection of projects I’ve worked on. Click on any preview to explore the live site.
+        Here's a selection of projects I've worked on. Click on any preview to explore the live site.
       </p>
 
       <div class="projects-grid">
@@ -188,5 +295,48 @@
     © 2025 Samuel Henry | Built with ❤️
   </footer>
 
+  <!-- Scripts -->
+  <script>
+    // Mobile Menu Functions
+    function toggleMobileMenu() {
+      const toggle = document.querySelector('.mobile-menu-toggle');
+      const nav = document.getElementById('mobileNav');
+      
+      toggle.classList.toggle('active');
+      nav.classList.toggle('active');
+      
+      // Prevent body scrolling when menu is open
+      document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
+    }
+
+    function closeMobileMenu() {
+      const toggle = document.querySelector('.mobile-menu-toggle');
+      const nav = document.getElementById('mobileNav');
+      
+      toggle.classList.remove('active');
+      nav.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const nav = document.getElementById('mobileNav');
+      const toggle = document.querySelector('.mobile-menu-toggle');
+      
+      if (nav.classList.contains('active') && 
+          !nav.contains(event.target) && 
+          !toggle.contains(event.target)) {
+        closeMobileMenu();
+      }
+    });
+
+    // Close mobile menu on escape key
+    document.addEventListener('keydown', function(event) {
+      const nav = document.getElementById('mobileNav');
+      if (event.key === 'Escape' && nav.classList.contains('active')) {
+        closeMobileMenu();
+      }
+    });
+  </script>
 </body>
 </html>
