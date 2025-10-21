@@ -19,7 +19,7 @@
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: #1d1c22; /* Unified background */
+      background: #1d1c22; 
       color: #fff;
     }
 
@@ -251,10 +251,14 @@
       font-size: 1.2rem;
       font-weight: 600;
       white-space: nowrap;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
     }
     .about-left .highlight {
       display: inline-block;
-      width: 120px; /* Fixed width */
+      width: 120px; 
       text-align: left;
     }
     .about-buttons {
@@ -462,35 +466,41 @@
         display: flex;
       }
 
-      /* Hero Mobile - Reduced height and better proportions */
+      /* Hero Mobile */
       .hero {
-        min-height: 60vh; /* Reduced from 75vh */
+        min-height: 60vh;
         flex-direction: column;
-        text-align: center;
-        padding: 2rem 5%; /* Reduced padding */
+        text-align: left;
+        padding: 2rem 8%; 
         justify-content: center;
       }
       .hero-content {
-        border-left: none;
-        padding-left: 0;
+        border-left: 4px solid #a78bfa;
+        padding-left: 1rem; 
+        width: 90%; 
+        max-width: 500px;
+        margin: 0 auto; 
       }
       .hero h1 {
         font-size: 2.2rem;
         margin-bottom: 0.5rem;
+        text-align: left; 
       }
       .hero h2 {
         font-size: 1.4rem;
         margin: 0.8rem 0;
         min-height: 1.8rem;
+        text-align: left; 
       }
       .hero p {
         font-size: 1rem;
         margin-bottom: 1.2rem;
+        text-align: left; 
       }
 
       /* Stats Mobile */
       .stats {
-        padding: 2rem 5%;
+        padding: 2rem 8%;
       }
       .stats-container {
         flex-direction: column;
@@ -510,7 +520,7 @@
       .about {
         flex-direction: column;
         text-align: center;
-        padding: 3rem 5%;
+        padding: 3rem 8%;
       }
       .about img {
         width: 150px;
@@ -521,7 +531,8 @@
       }
       .about-left h3 {
         font-size: 1rem;
-        white-space: normal;
+        white-space: nowrap;
+        flex-wrap: nowrap;
       }
       .about-left .highlight {
         width: auto;
@@ -536,7 +547,7 @@
       
       /* Experiences Mobile */
       .experiences {
-        padding: 3rem 5%;
+        padding: 3rem 8%;
       }
       .experiences-title {
         font-size: 1.8rem;
@@ -566,7 +577,7 @@
 
       /* Contact Mobile */
       .contact {
-        padding: 3rem 5%;
+        padding: 3rem 8%;
       }
       .contact-title {
         font-size: 2rem;
@@ -598,8 +609,8 @@
     /* Extra small screens */
     @media (max-width: 480px) {
       .hero {
-        min-height: 50vh; /* Even smaller for very small screens */
-        padding: 1.5rem 4%;
+        min-height: 50vh; 
+        padding: 1.5rem 8%; 
       }
       .hero h1 {
         font-size: 1.8rem;
@@ -608,18 +619,48 @@
         font-size: 1.2rem;
       }
       .stats {
-        padding: 1.5rem 4%;
+        padding: 1.5rem 8%;
       }
       .about {
-        padding: 2rem 4%;
+        padding: 2rem 8%;
       }
       .experiences {
-        padding: 2rem 4%;
+        padding: 2rem 8%;
       }
       .contact {
-        padding: 2rem 4%;
+        padding: 2rem 8%;
       }
     }
+
+
+.about-left h3 {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+#typed-about {
+  min-width: 110px; 
+  display: inline-block;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .about-left h3 {
+    font-size: 1rem;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+  }
+  
+  #typed-about {
+    min-width: 90px; 
+  }
+}
   </style>
 </head>
 <body>
@@ -699,10 +740,10 @@
       </div>
     </div>
     <div class="about-right">
-      <p>💻 I'm a GoHighLevel websites and automation specialist who loves helping business owners make things simpler and more effective online.</p>
+      <p>💻 I'm a websites and automation specialist who loves helping businesses make things simpler and more effective online.</p>
       <p>✨ From building clean, high-converting websites to setting up automations that save you hours every week, my goal is to take the tech stress off your shoulders so you can focus on growing your business.</p>
       <p>⚡ I believe great systems should feel effortless, and I'm here to make that happen for you.</p>
-      <p>🛠️ I'm also familiar with platforms like Wix and other CRM and email marketing platforms, which gives me flexibility to work with whatever tools you already use.</p>
+      <p>🛠️ I am familiar with a variety of platforms like Wix, Wordpress, GoHighLevel, and other CRM and email marketing platforms, which gives me flexibility to work with whatever tools you already use. I also know HTML, CSS & JavaScript so any custom development needs can be met.</p>
       <p>🌟 You can explore my Fiverr profile, where I've built a track record of happy clients and 5-star reviews.</p>
     </div>
   </section>
@@ -775,7 +816,7 @@
     <h2 class="contact-title">Let's Talk</h2>
     <p class="contact-subtitle">What led you here? What are you looking for? I would love to hear from you!</p>
 
-    <form id="contactForm" action="https://formspree.io/f/xeoloajy" method="POST">
+    <form id="contactForm" action="https://formspree.io/f/mdkwvgzl" method="POST">
       <input type="text" name="name" placeholder="Your Name" aria-label="Your name" required>
       <input type="email" name="email" placeholder="Your Email" aria-label="Your email" required>
       <textarea name="message" rows="5" placeholder="Your Message" aria-label="Your message" required></textarea>
@@ -904,7 +945,7 @@
 
     counters.forEach(counter => observer.observe(counter));
 
-    // About typing effect (fixed width)
+    // About typing effect
     const aboutRoles = ["Wix Studio", "WordPress"];
     let aboutIndex = 0;
     let aboutCharIndex = 0;
@@ -936,6 +977,51 @@
       setTimeout(typeAboutEffect, aboutDeleting ? speed / 2 : speed);
     }
     typeAboutEffect();
+
+    // Form submission handling
+    const form = document.getElementById('contactForm');
+    const message = document.getElementById('formMessage');
+
+    // Add these CSS styles to the message element
+    message.style.transition = 'opacity 0.5s ease-in-out, transform 0.5s ease-in-out';
+    message.style.opacity = '0';
+    message.style.transform = 'translateY(20px)';
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { Accept: 'application/json' },
+        });
+
+        if (res.ok) {
+          showMessage('✅ Your message has been sent successfully!', '#a78bfa');
+          form.reset();
+        } else {
+          showMessage('❌ Something went wrong. Please try again later.', 'red');
+        }
+      } catch (error) {
+        showMessage('⚠ Network error. Please check your connection.', 'orange');
+      }
+    });
+
+    function showMessage(text, color) {
+      // Show the message with animation
+      message.textContent = text;
+      message.style.color = color;
+      message.style.opacity = '1';
+      message.style.transform = 'translateY(0)';
+
+      // Hide the message after 3 seconds
+      setTimeout(() => {
+        message.style.opacity = '0';
+        message.style.transform = 'translateY(20px)';
+      }, 3000);
+    }
   </script>
 </body>
 </html>
