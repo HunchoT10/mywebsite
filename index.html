@@ -471,26 +471,27 @@
         min-height: 60vh;
         flex-direction: column;
         text-align: left;
-        padding: 2rem 8%; 
+        padding: 2rem 5%; /* Reduced from 8% to 5% */
         justify-content: center;
       }
       .hero-content {
         border-left: 4px solid #a78bfa;
-        padding-left: 1rem; 
-        width: 90%; 
+        padding-left: 1rem;
+        width: 95%; /* Increased from 90% to 95% */
         max-width: 500px;
-        margin: 0 auto; 
+        margin: 0 auto;
       }
       .hero h1 {
-        font-size: 2.2rem;
+        font-size: 2rem; /* Reduced from 2.2rem */
         margin-bottom: 0.5rem;
         text-align: left; 
       }
       .hero h2 {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
         margin: 0.8rem 0;
         min-height: 1.8rem;
         text-align: left; 
+        white-space: nowrap; /* Ensure text stays on one line */
       }
       .hero p {
         font-size: 1rem;
@@ -609,8 +610,7 @@
     /* Extra small screens */
     @media (max-width: 480px) {
       .hero {
-        min-height: 50vh; 
-        padding: 1.5rem 8%; 
+        padding: 1.5rem 4%; /* Reduced from 8% to 4% */
       }
       .hero h1 {
         font-size: 1.8rem;
@@ -618,20 +618,27 @@
       .hero h2 {
         font-size: 1.2rem;
       }
-      .stats {
-        padding: 1.5rem 8%;
+    }
+
+    /* Very small screens */
+    @media (max-width: 360px) {
+      .hero h1 {
+        font-size: 1.6rem;
       }
-      .about {
-        padding: 2rem 8%;
-      }
-      .experiences {
-        padding: 2rem 8%;
-      }
-      .contact {
-        padding: 2rem 8%;
+      .hero h2 {
+        font-size: 1.1rem;
       }
     }
 
+    /* Tiny screens */
+    @media (max-width: 320px) {
+      .hero h1 {
+        font-size: 1.4rem;
+      }
+      .hero h2 {
+        font-size: 1rem;
+      }
+    }
 
 .about-left h3 {
   margin-top: 1rem;
